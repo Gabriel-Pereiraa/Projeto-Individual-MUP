@@ -36,7 +36,7 @@ body {
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 2.0rem;
+    padding: 1.0rem;
     margin-left: 5rem;
 }
 
@@ -73,11 +73,12 @@ body {
     border-radius: 10px;
     border: 1.5px solid #ffffff;
     color: white;
+    width: 60%;
 
     font-family: var(--font-button);
     font-weight: bold;
 
-    margin-right: 6.5rem;
+    margin-right: 10rem;
 
     transition: all 1.5s ease;
 }
@@ -239,4 +240,8 @@ body {
 
 .acesso a {
     color: var(--primaria-100);
+}
+
+.overflow-y {
+    overflow-y: hidden;
 }

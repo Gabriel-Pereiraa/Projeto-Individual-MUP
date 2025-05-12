@@ -5,10 +5,10 @@
     --font-title: "Plus Jakarta Sans", sans-serif;
     --font-button: "Manrope", sans-serif;
     --primaria-100: #2a2a2a;
-    --white-100: #ffffff;
+    --secundaria-100: #ffffff;
     --azul-100: #005eff;
-    --dark-text: #000000;
-    --gray: #000000;
+    --dark-texto: #000000;
+    --preto: #000000;
 }
 
 ::-webkit-scrollbar{
@@ -30,12 +30,12 @@
     
 }
 body {
-    background-color: var(--primaria-100);
+    background-color: var(--secundaria-100);
 }
 .navbar {
     display: flex;
     justify-content: space-around;
-    padding: 1.5rem;
+    padding: 1.0rem;
 
     position: fixed;
     background: #2a2a2a;
@@ -87,6 +87,7 @@ body {
     border-radius: 10px;
     border: 1.5px solid #ffffff;
     color: white;
+    width: 60%;
 
     font-family: var(--font-button);
     font-weight: bold;
