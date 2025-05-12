@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root {
+    --font-title: "Plus Jakarta Sans", sans-serif;
+    --font-button: "Manrope", sans-serif;
+    --green-100: #99EA48;
+    --dark-100: #1F1F1F;
+    --dark-text: #333333;
+    --gray: #666666;
+}
+
+::-webkit-scrollbar{
+    border-radius: 8px;
+    background-color: var(--dark-100);
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background: var(--dark-100);
+    border-radius: 8px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+
+  }
+
+  h1 {
+    font-family: var(--font-title);
+  }
