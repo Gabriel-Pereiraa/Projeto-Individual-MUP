@@ -5,10 +5,10 @@
     --font-title: "Plus Jakarta Sans", sans-serif;
     --font-button: "Manrope", sans-serif;
     --primaria-100: #2a2a2a;
-    --white-100: #ffffff;
+    --secundaria-100: #ffffff;
     --azul-100: #005eff;
-    --dark-text: #000000;
-    --gray: #000000;
+    --dark-texto: #000000;
+    --preto: #000000;
 }
 
 ::-webkit-scrollbar {
@@ -106,12 +106,6 @@ body {
 
 }
 
-
-.img {
-    margin-left: 2rem;
-
-}
-
 .form {
     margin-right: 25rem;
     background-color: rgb(255, 255, 255);
@@ -121,7 +115,7 @@ body {
 }
 
 .conteudoForm {
-    padding: 2rem;
+    padding: 1.5rem;
 
     margin-top: 2rem;
 }
@@ -143,7 +137,7 @@ body {
 }
 
 .email label {
-    color: var(--gray);
+    color: var();
     font-family: var(--font-title);
     font-size: 15px;
 }
@@ -165,7 +159,7 @@ body {
 }
 
 .senha label {
-    color: var(--gray);
+    color: var(--preto);
     font-family: var(--font-title);
     font-size: 15px;
 }
@@ -194,7 +188,7 @@ body {
 .check label {
     font-family: var(--font-title);
     font-size: 15px;
-    color: var(--gray);
+    color: var(--preto);
 }
 
 .btn {
@@ -213,7 +207,7 @@ body {
     border-radius: 10px;
     border: 1.5px solid var(--azul-100);
     background-color: var(--azul-100);
-    color: var(--white-100);
+    color: var( --secundaria-100);
     font-family: var(--font-button);
     font-weight: bold;
     width: 16rem;
