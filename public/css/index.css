@@ -38,7 +38,7 @@ body {
     padding: 1.0rem;
 
     position: fixed;
-    background: #2a2a2a;
+    background: #000000;
     width: 100%;
 
     z-index: 1000;
@@ -161,14 +161,14 @@ body {
 }*/
 
 .img-home {
-    width: 50%;
+    width: 100%;
     align-items: center;
     justify-content: center;
     display: flex;
 }
 
 .img-home img {
-    width: 25rem;
+    width: 100rem;
     /* border: 12px solid rgba(0, 0, 0, 0.479); */
     margin-top: 2.6rem;
 }
