@@ -4,7 +4,7 @@
 :root {
     --font-title: "Plus Jakarta Sans", sans-serif;
     --font-button: "Manrope", sans-serif;
-    --primaria-100: #2a2a2a;
+    --primaria-100: #4f4f4f;
     --secundaria-100: #ffffff;
     --azul-100: #005eff;
     --dark-texto: #000000;
@@ -71,7 +71,7 @@ body {
 }
 
 .navbar a:hover {
-    color: var(--azul-100);
+    color: var(--primaria-100);
 }
 
 .btn-navbar {
@@ -98,9 +98,9 @@ body {
 }
 
 .btn-navbar .login:hover {
-    background-color: var(--azul-100);
+    background-color: var(--primaria-100);
     color: #ffffff;
-    border: 1px solid var(--azul-100);
+    border: 1px solid var(--primaria-100);
 }
 
 

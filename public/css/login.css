@@ -4,7 +4,7 @@
 :root {
     --font-title: "Plus Jakarta Sans", sans-serif;
     --font-button: "Manrope", sans-serif;
-    --primaria-100: #2a2a2a;
+    --primaria-100: #4f4f4f;
     --secundaria-100: #ffffff;
     --azul-100: #005eff;
     --dark-texto: #000000;
@@ -31,7 +31,7 @@
 
 body {
     height: 100vh;
-    background-color: var(--primaria-100);
+    background-color: var(--preto);
 }
 
 .navbar {
@@ -49,10 +49,6 @@ body {
     margin-left: 10rem;
 }
 
-
-/*  <h1>Lugar de pessoas <br> felizes!</h1>
-             <p>Faça parte do nosso ministério.</p> */
-
 .navbar a {
     color: #ffffff;
     text-decoration: none;
@@ -61,7 +57,7 @@ body {
 }
 
 .navbar a:hover {
-    color: var(--azul-100);
+    color: var(--primaria-100);
 }
 
 .btn-navbar {
@@ -88,9 +84,9 @@ body {
 }
 
 .btn-navbar .cadastrar:hover {
-    background-color: var(--azul-100);
+    background-color: var(--primaria-100);
     color: #ffffff;
-    border: 1px solid var(--azul-100);
+    border: 1px solid var(--primaria-100);
 }
 
 .conteudo {
@@ -205,9 +201,9 @@ body {
 .btn button {
     padding: 0.8rem;
     border-radius: 10px;
-    border: 1.5px solid var(--azul-100);
-    background-color: var(--azul-100);
-    color: var( --secundaria-100);
+    border: 1.5px solid var(--primaria-100);
+    background-color: var(--primaria-100);
+    color: var(--secundaria-100);
     font-family: var(--font-button);
     font-weight: bold;
     width: 16rem;
@@ -243,6 +239,6 @@ body {
     overflow-y: hidden;
 }
 
-body{
+body {
     margin-top: 0;
 }
