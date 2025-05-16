@@ -4,21 +4,30 @@
 :root {
     --font-title: "Plus Jakarta Sans", sans-serif;
     --font-button: "Manrope", sans-serif;
-    --primaria-100: #4f4f4f;
-    --secundaria-100: #ffffff;
-    --azul-100: #005eff;
+    --black-100: #000000;
+    --white-100: #ffffff;
+    --purple-100: #8000ff;
     --dark-texto: #000000;
-    --preto: #000000;
+}
+
+.banner video {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
 }
 
 ::-webkit-scrollbar{
     border-radius: 1px;
     width: 1px;
-    background-color: var(--primaria-100);
+    background-color: var(--black-100);
   }
 
   ::-webkit-scrollbar-thumb{
-    background: var(--primaria-100);
+    background: var(--black-100);
     border-radius: 8px;
   }
 
@@ -30,7 +39,7 @@
     
 }
 body {
-    background-color: var(--secundaria-100);
+    background-color: var(--white-100);
 }
 .navbar {
     display: flex;
@@ -38,7 +47,8 @@ body {
     padding: 1.0rem;
 
     position: fixed;
-    background: #000000;
+    background: transparent;
+/*    background: #000000;*/
     width: 100%;
 
     z-index: 1000;
@@ -64,14 +74,14 @@ body {
 }
 
 .navbar a {
-    color: rgb(255, 255, 255);
+    color: var(--white-100);
     text-decoration: none;
 
     transition: all 0.4s ease;
 }
 
 .navbar a:hover {
-    color: var(--primaria-100);
+    color: var(--purple-100);
 }
 
 .btn-navbar {
@@ -98,9 +108,9 @@ body {
 }
 
 .btn-navbar .login:hover {
-    background-color: var(--primaria-100);
+    background-color: var(--purple-100);
     color: #ffffff;
-    border: 1px solid var(--primaria-100);
+    border: 1px solid var(--purple-100);
 }
 
 
@@ -256,7 +266,7 @@ body {
     
 }
 
-.versiculoTexto {
+.Texto {
     text-align: center;
     font-family: var(--dark-text);
     width: 100%;
@@ -264,14 +274,14 @@ body {
     
 }
 
-.versiculoTexto h3 {
+.texto h3 {
     font-family: var(--font-title);
     font-size: 3.4vw;
     width: 70%;
     margin-left: 15%;
 }
 
-.versiculoTexto h4 {
+.texto h4 {
     margin-top: 4rem;
     font-family: var(--font-title);
     color: var(--dark-text);
