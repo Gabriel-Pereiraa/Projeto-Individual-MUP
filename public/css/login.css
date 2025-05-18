@@ -4,20 +4,19 @@
 :root {
     --font-title: "Plus Jakarta Sans", sans-serif;
     --font-button: "Manrope", sans-serif;
-    --primaria-100: #4f4f4f;
-    --secundaria-100: #ffffff;
-    --azul-100: #005eff;
+    --black-100: #000000;
+    --white-100: #ffffff;
+    --purple-100: #8000ff;
     --dark-texto: #000000;
-    --preto: #000000;
 }
 
 ::-webkit-scrollbar {
     border-radius: 8px;
-    background-color: var(--primaria-100);
+    background-color: var(--black-100);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primaria-100);
+    background: var(--black-100);
     border-radius: 8px;
 }
 
@@ -31,7 +30,7 @@
 
 body {
     height: 100vh;
-    background-color: var(--preto);
+    background-color: var(--black-100);
 }
 
 .navbar {
@@ -57,7 +56,7 @@ body {
 }
 
 .navbar a:hover {
-    color: var(--primaria-100);
+    color: var(--purple-100);
 }
 
 .btn-navbar {
@@ -84,9 +83,9 @@ body {
 }
 
 .btn-navbar .cadastrar:hover {
-    background-color: var(--primaria-100);
-    color: #ffffff;
-    border: 1px solid var(--primaria-100);
+    background-color: transparent;
+    color: var(--purple-100);
+    border: 1.5px solid var(--purple-100);
 }
 
 .conteudo {
@@ -123,7 +122,7 @@ body {
 
     margin-left: 3.5rem;
 
-    color: var(--primaria-text);
+    color: var(--black-100);
 
 }
 
@@ -155,7 +154,7 @@ body {
 }
 
 .senha label {
-    color: var(--preto);
+    color: var(--black-100);
     font-family: var(--font-title);
     font-size: 15px;
 }
@@ -169,23 +168,6 @@ body {
 
     margin-top: 0.5rem;
 }
-
-/*.check {
-    margin-left: 3.5rem;
-    margin-top: 2rem;
-
-    align-items: center;
-    justify-content: left;
-    display: flex;
-
-    gap: 0.8rem;
-}
-
-.check label {
-    font-family: var(--font-title);
-    font-size: 15px;
-    color: var(--preto);
-}*/
 
 .btn {
     display: flex;

@@ -109,9 +109,9 @@
     ) {
       // cardErro.style.display = "block";
       // mensagem_erro.innerHTML =
-      //   "(Mensagem de erro para todos os campos em branco)";
+      //   "(Calma lá, todos os campos em branco)";
 
-      alert('Deu erro campos em branco');
+      alert('Calma lá, todos os campos em branco');
 
       finalizarAguardar();
       return false;
@@ -134,8 +134,8 @@
     }
     else if (!emailVar.includes('@') || !emailVar.includes('.')) {
       // cardErro.style.display = "block";
-      // mensagem_erro.innerHTML = "(O seu E-mail deve conter @ e .)"
-      alert('Seu email deve conter @ e .')
+      // mensagem_erro.innerHTML = "(Seu email deve conter pelo menos @ e .)"
+      alert('Seu email deve conter pelo menos @ e .')
       finalizarAguardar();
       return false;
     }

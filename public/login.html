@@ -54,11 +54,6 @@
                 <br>
                 <input type="password" id="ipt_senhaConfirm">
               </div>
-
-              <div class="check">
-                <input type="checkbox">
-                <label>Quero ser membro!</label>
-              </div>
       
             <div class="btn">
               <button onclick="entrar()">Entrar</button></a>
@@ -92,9 +87,9 @@
 
         if (emailVar == "" || senhaVar == "") {
             // cardErro.style.display = "block"
-            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // mensagem_erro.innerHTML = "(Calma lá, todos os campos em branco)";
 
-            alert('Mensagem de erro para todos os campos em branco')
+            alert('Calma lá, todos os campos em branco')
             finalizarAguardar();
             return false;
         }
