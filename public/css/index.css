@@ -39,7 +39,7 @@
     
 }
 body {
-    background-color: var(--white-100);
+    background-color: var(--purple-100);
 }
 .navbar {
     display: flex;
