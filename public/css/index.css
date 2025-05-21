@@ -10,16 +10,6 @@
     --dark-texto: #000000;
 }
 
-.banner video {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-}
-
 ::-webkit-scrollbar{
     border-radius: 1px;
     width: 1px;
@@ -31,26 +21,28 @@
     border-radius: 8px;
   }
 
-* {
-    margin: 0;
-    padding: 0;
-
-    overflow-x: hidden;
-    
-}
 body {
-    background-color: var(--purple-100);
+    background-color: var(--black-100);
 }
+
+.banner video {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
 .navbar {
     display: flex;
     justify-content: space-around;
     padding: 1.0rem;
-
     position: fixed;
     background: transparent;
 /*    background: #000000;*/
     width: 100%;
-
     z-index: 1000;
 }
 
@@ -114,14 +106,14 @@ body {
 }
 
 
-.home {
+.inicio {
     display: flex;
     width: 100%;
 
     margin-top: 5rem;
 }
 
-.title {
+.titulo {
     padding: 3rem;
     font-family: var(--font-title);
     width: 50%;
@@ -129,17 +121,17 @@ body {
     left: 6%;
 }
 
-.title h2 {
+.titulo h2 {
     font-size: 2.0rem;
     width: 100%;
 }
 
-.title span {
+.titulo span {
     font-style: oblique;
-    text-decoration: underline var(--green-100);
+    text-decoration: underline var(--white-100);
 }
 
-.title p {
+.titulo p {
     color: gray;
     width: 100%;
     font-size: 1.2rem;
@@ -147,40 +139,18 @@ body {
     margin-top: 0.9rem;
 }
 
-/*.title button {
-    background-color: var(--dark-100);
-    border: 1px solid var(--dark-100);
-    font-weight: bold;
-    font-family: var(--font-button);
-    color: white;
-    border-radius: 18px;
-
-    padding: 0.7rem;
-    margin-top: 2rem;
-
-    width: 60%;
-
-    transition: all 0.4s ease;
-}
-
-.title button:hover {
-    background-color: var(--green-100);
-    border: 1px solid var(--green-100);
-
-    color: var(--dark-100);
-}*/
-
-.img-home {
+.img-inicio {
     width: 100%;
     align-items: center;
     justify-content: center;
     display: flex;
+    
 }
 
-.img-home img {
+.img-inicio img {
     width: 100rem;
-    /* border: 12px solid rgba(0, 0, 0, 0.479); */
-    margin-top: 2.6rem;
+    margin-top: 0rem;
+
 }
 
 .sobre {
@@ -199,19 +169,18 @@ body {
     margin-top: 5rem;
 }
 
-.title-sobre {
+.titulo-sobre {
     margin-top: 3rem;
     width: 60%;
 }
 
-.title-sobre span {
-    color: var(--green-100);
+.titulo-sobre span {
+    color: var(--white-100);
 }
 
 .conteudo-sobre {
     display: flex;
     font-family: var(--font-title);
-    /* justify-content: space-around; */
     gap: 3rem;
     width: 100%;
 }
@@ -230,45 +199,24 @@ body {
 }
 
 .conteudo-sobre h4 {
-    color: var(--green-100);
-    margin-top: 4rem;
-    font-size: 3vw;
+    color: var(--white-100);
+    margin-top: 1rem;
+    font-size: 2vw;
     
 }
 
 .conteudo-sobre span {
-    color: white;
+     color: var(--purple-100);
 }
 
-/* .conteudo-sobre img {
-    width: 30rem;
-} */
-
 .img-sobre img {
-    /* border: 1px solid var(--green-100); */
     width: 40rem;
     margin-top: 4rem;
 }
 
-.versiculos {
-    background-color: white;
-
-    margin-top: 6rem;
-
-}
-
-.versiculos h2 {
-    font-family: var(--font-title);
-    text-align: center;
-    margin-top: 3rem;
-    font-size: 3vw;
-    color: var(--dark-100);
-    
-}
-
 .Texto {
     text-align: center;
-    font-family: var(--dark-text);
+    font-family: var(--white-100);
     width: 100%;
     margin-top: 3rem;
     
@@ -284,6 +232,45 @@ body {
 .texto h4 {
     margin-top: 4rem;
     font-family: var(--font-title);
-    color: var(--dark-text);
+    color: var(--white-100);
     font-size: 2rem;
 }
+
+
+ /*CONTRIBUIR*/
+
+body {
+  color: #000000;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 3.5rem;
+  border-radius: 1.5rem;
+  width: 300px;
+  box-shadow: 0 0 20px rgba(107, 2, 227, 0.4);
+}
+
+.card h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.key {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.qrcode {
+  width: 160px;
+  margin-top: 0.5rem;
+}
+
