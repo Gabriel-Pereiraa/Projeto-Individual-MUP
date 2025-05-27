@@ -21,6 +21,8 @@
     border-radius: 8px;
   }
 
+/*INICIO*/
+
 body {
     background-color: var(--black-100);
 }
@@ -41,7 +43,6 @@ body {
     padding: 1.0rem;
     position: fixed;
     background: transparent;
-/*    background: #000000;*/
     width: 100%;
     z-index: 1000;
 }
@@ -58,17 +59,14 @@ body {
     gap: 3rem;
     justify-content: center;
     align-items: center;
-
     font-family: var(--font-title);
     font-weight: bold;
-
     transition: all 0.4s ease;
 }
 
 .navbar a {
     color: var(--white-100);
     text-decoration: none;
-
     transition: all 0.4s ease;
 }
 
@@ -90,12 +88,9 @@ body {
     border: 1.5px solid #ffffff;
     color: white;
     width: 60%;
-
     font-family: var(--font-button);
     font-weight: bold;
-
     margin-right: 6.5rem;
-
     transition: all 1.5s ease;
 }
 
@@ -105,78 +100,22 @@ body {
     border: 1px solid var(--purple-100);
 }
 
-
-.inicio {
-    display: flex;
-    width: 100%;
-
-    margin-top: 5rem;
-}
-
-.titulo {
-    padding: 3rem;
-    font-family: var(--font-title);
-    width: 50%;
-    position: relative;
-    left: 6%;
-}
-
-.titulo h2 {
-    font-size: 2.0rem;
-    width: 100%;
-}
-
-.titulo span {
-    font-style: oblique;
-    text-decoration: underline var(--white-100);
-}
-
-.titulo p {
-    color: gray;
-    width: 100%;
-    font-size: 1.2rem;
-
-    margin-top: 0.9rem;
-}
-
-.img-inicio {
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    
-}
-
-.img-inicio img {
-    width: 100rem;
-    margin-top: 0rem;
-
-}
+/*SOBRE NOS*/
 
 .sobre {
-    
     gap: 4rem;
     padding: 3rem;
     font-family: var(--font-title);
-
-    background-color: var(--dark-100);
-
+    background-color: var(--black-100);
+    margin-top: 4rem;
 }
 
-.sobre h1 {
-    font-size: 4vw;
-    color: rgb(174, 103, 103);
-    margin-top: 5rem;
-}
 
 .titulo-sobre {
     margin-top: 3rem;
     width: 60%;
 }
 
-.titulo-sobre span {
-    color: var(--white-100);
-}
 
 .conteudo-sobre {
     display: flex;
@@ -185,10 +124,6 @@ body {
     width: 100%;
 }
 
-.conteudo-sobre h3 {
-    font-size: 4vw;
-    color: white;
-}
 
 .conteudo-sobre p {
     margin-top: 3rem;
@@ -214,33 +149,29 @@ body {
     margin-top: 4rem;
 }
 
-.Texto {
-    text-align: center;
-    font-family: var(--white-100);
+ /*AGENDA*/ 
+
+.img-agenda {
     width: 100%;
-    margin-top: 3rem;
-    
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 2rem;
 }
-
-.texto h3 {
-    font-family: var(--font-title);
-    font-size: 3.4vw;
-    width: 70%;
-    margin-left: 15%;
-}
-
-.texto h4 {
-    margin-top: 4rem;
-    font-family: var(--font-title);
-    color: var(--white-100);
-    font-size: 2rem;
-}
-
 
  /*CONTRIBUIR*/
 
 body {
   color: #000000;
+  
+}
+
+.img-contribuir {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 0rem;
 }
 
 .cards {
@@ -249,9 +180,11 @@ body {
   justify-content: center;
   text-align: center;
   gap: 2rem;
+  margin-top: 10rem;
 }
 
 .card {
+  font-family: 'Segoe UI', sans-serif;
   background-color: #ffffff;
   padding: 3.5rem;
   border-radius: 1.5rem;
@@ -262,11 +195,6 @@ body {
 .card h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-}
-
-.key {
-  font-size: 1rem;
-  margin-bottom: 1rem;
 }
 
 .qrcode {
