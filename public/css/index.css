@@ -156,7 +156,7 @@ body {
     align-items: center;
     justify-content: center;
     display: flex;
-    margin-top: 2rem;
+    margin-top: 0rem;
 }
 
 /*MIDIAS*/
@@ -174,44 +174,40 @@ body {
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 60px 20px;
+  background-color: rgb(0, 0, 0);
+  padding: 160px 20px;
 }
 
 .midias h2 {
-  font-size: 40px;
+  font-size: 50px;
   margin-bottom: 10px;
   letter-spacing: 4px;
-  color: var(--purple-100);
+  color: var(--white-100);
 }
 
 .midias p {
-  font-size: 20px;
+  font-size: 25px;
   margin-bottom: 40px;
 }
 
-.social-icons {
+.midias-icons img {
+  width: 25px;
+  height: 25px;
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 30%;
+}
+
+.midias-icons {
   display: flex;
   justify-content: center;
   gap: 60px;
   flex-wrap: wrap;
 }
 
-.icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.icon i {
-  font-size: 50px;
-  margin-bottom: 10px;
-}
 
-.icon span {
-  font-size: 14px;
-  letter-spacing: 4px;
-}
+
 
  /*CONTRIBUIR*/
 
@@ -225,7 +221,7 @@ body {
     width: 100%;
     align-items: center;
     display: flex;
-    margin-top: 2rem;
+    margin-top: 0rem;
 }
 
 .cards {
@@ -251,9 +247,95 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.qrcode {
-  width: 160px;
+.qrcode-img {
+  width: 200px;
   margin-top: 0.5rem;
+
 }
 
 
+/*RODAPE*/
+
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  margin-top: 10rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo {
+  flex: 1 1 250px;
+}
+
+.footer-logo h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-logo span {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+.social-icons a {
+  margin-right: 0px;
+}
+
+.social-icons img {
+  width: 25px;
+  height: 25px;
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 30%;
+}
+
+.footer-links {
+  display: flex;
+  gap: 40px;
+  flex: 1 1 300px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+   color: var(--purple-100);
+}
+
+.footer-contact {
+  flex: 1 1 250px;
+}
+
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.footer-contact img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+ filter: brightness(0) saturate(100%) invert(100%);
+}
