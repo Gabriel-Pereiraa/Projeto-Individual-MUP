@@ -1,89 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
     <nav class="navbar">
-        <a class="navbar-brand" 
-        href="#"><img src="../img/logo.mup.png" width="90" height="90" alt="">
-  </a>  
-    
-     <div class="btn-navbar">
+        <a class="navbar-brand" href="#"><img src="assets-imgs\logo.png" width="90" height="90" alt="">
+        </a>
+
+        <div class="btn-navbar">
             <a href="cadastro.html"><button class="cadastrar">Cadastrar</button></a>
-        </div> 
-    
+        </div>
+
     </nav>
 
     <section>
 
         <div class="conteudo">
-          <div class="title">
-            
-      
-             <div class="img">
+            <div class="title">
 
-             
-                
-            </div>
-          </div>
-      
-          <div class="form">
-            <div class="conteudoForm">
-      
-            <h3>Faça seu Login</h3>
-              <br><br>
-            
-            <div class="email">
-              <label>E-mail</label>
-              <br>
-              <input type="email" id="ipt_email">
-            </div>
-      
-            <div class="senha">
-              <label>Senha</label>
-              <br>
-              <input type="password" id="ipt_senha">
+
+                <div class="img">
+
+
+
+                </div>
             </div>
 
-            <div class="senha">
-                <label>Confirmar Senha</label>
-                <br>
-                <input type="password" id="ipt_senhaConfirm">
-              </div>
-      
-            <div class="btn">
-              <button onclick="entrar()">Entrar</button></a>
-              <div class="acesso">
-              <p>Novo na União? <a href="cadastro.html">Cadastre-se</a></p>
+            <div class="form">
+                <div class="conteudoForm">
+
+                    <h3>Faça seu Login</h3>
+                    <br><br>
+
+                    <div class="email">
+                        <label>E-mail</label>
+                        <br>
+                        <input type="email" id="ipt_email">
+                    </div>
+
+                    <div class="senha">
+                        <label>Senha</label>
+                        <br>
+                        <input type="password" id="ipt_senha">
+                    </div>
+
+                    <div class="senha">
+                        <label>Confirmar Senha</label>
+                        <br>
+                        <input type="password" id="ipt_senhaConfirm">
+                    </div>
+
+                    <div class="btn">
+                        <button onclick="entrar()">Entrar</button></a>
+                        <div class="acesso">
+                            <p>Novo na União? <a href="cadastro.html">Cadastre-se</a></p>
+                        </div>
+                    </div>
+
+
+
+                </div>
             </div>
-            </div>
-      
-            
-      
-          </div>
-          </div>
         </div>
-      
-      </section>
-      
-      <br><br>
+
+    </section>
+
+    <br><br>
 
 </body>
+
 </html>
 
 <script>
 
 
     function entrar() {
-       //  aguardar();
+        //  aguardar();
 
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
-        
+
 
         if (emailVar == "" || senhaVar == "") {
             // cardErro.style.display = "block"

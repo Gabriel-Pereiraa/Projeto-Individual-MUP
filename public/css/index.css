@@ -21,7 +21,7 @@
     border-radius: 8px;
   }
 
-/*INICIO*/
+/*INICIO-INICIO-INICIO*/
 
 body {
     background-color: var(--black-100);
@@ -100,7 +100,7 @@ body {
     border: 1px solid var(--purple-100);
 }
 
-/*SOBRE NOS*/
+/*SOBRE NOS-SOBRE NOS-SOBRE NOS*/
 
 .sobre {
     gap: 4rem;
@@ -130,26 +130,24 @@ body {
     color: white;
     width: 90%;
     font-size: 18px;
-    
 }
 
 .conteudo-sobre h4 {
     color: var(--white-100);
     margin-top: 1rem;
     font-size: 2vw;
-    
 }
 
-.conteudo-sobre span {
+/*.conteudo-sobre span {
      color: var(--purple-100);
-}
+}*/
 
 .img-sobre img {
     width: 40rem;
     margin-top: 4rem;
 }
 
- /*AGENDA*/ 
+ /*AGENDA-AGENDA-AGENDA*/ 
 
 .img-agenda {
     width: 100%;
@@ -159,7 +157,7 @@ body {
     margin-top: 0rem;
 }
 
-/*MIDIAS*/
+/*MIDIAS-MIDIAS-MIDIAS*/
 
 body {
   margin: 0;
@@ -206,14 +204,10 @@ body {
 }
 
 
-
-
-
- /*CONTRIBUIR*/
+ /*CONTRIBUIR-CONTRIBUIR-CONTRIBUIR*/
 
 body {
   color: #000000;
-  
 }
 
 .img-contribuir {
@@ -239,7 +233,6 @@ body {
   padding: 4.5rem;
   border-radius: 1.5rem;
   width: 300px;
-  box-shadow: 0 0 30px rgba(107, 2, 227, 0.4);
 }
 
 .card h2 {
@@ -250,11 +243,10 @@ body {
 .qrcode-img {
   width: 200px;
   margin-top: 0.5rem;
-
 }
 
 
-/*RODAPE*/
+/*RODAPE-RODAPE-RODAPE*/
 
 footer {
   background-color: #000;
@@ -271,25 +263,6 @@ footer {
   gap: 40px;
   max-width: 1200px;
   margin: auto;
-}
-
-.footer-logo {
-  flex: 1 1 250px;
-}
-
-.footer-logo h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.footer-logo span {
-  display: block;
-  font-size: 14px;
-  letter-spacing: 4px;
-}
-
-.social-icons a {
-  margin-right: 0px;
 }
 
 .social-icons img {

@@ -1,99 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro</title>
-  <link rel="stylesheet" href="css/cadastro.css">
-</head>
-
-<body class="overflow-y">
-  <nav class="navbar">
-    <a class="navbar-brand" href="#">
-      <img src="assets-imgs\logo.png" width="90" height="90" alt="">
-    </a>
-
-    </div>
-
-    <div class="btn-navbar">
-      <a href="login.html"><button class="login">Entrar</button></a>
-
-    </div>
-
-  </nav>
-
-  <section>
-
-    <div class="conteudo">
-      <div class="title">
-
-
-        <div class="img">
-        </div>
-      </div>
-
-      <div class="form">
-        <div class="conteudoForm">
-
-          <h3>Faça seu Cadastro</h3>
-          <br><br>
-          <div class="nomes">
-
-            <div class="nome">
-              <label>Nome Completo</label>
-              <br>
-              <input type="text" id="ipt_nome">
-
-            </div>
-
-          </div>
-
-          <div class="email">
-            <label>E-mail</label>
-            <br>
-            <input type="email" id="ipt_email">
-          </div>
-
-          <div class="senha">
-            <label>Senha</label>
-            <br>
-            <input type="password" id="ipt_senha">
-          </div>
-
-          <div class="senha">
-            <label>Confirmar Senha</label>
-            <br>
-            <input type="password" id="ipt_senhaConfirmar">
-          </div>
-
-
-          <div class="btn">
-            <button onclick="cadastrar()">Cadastrar</button>
-            <div class="acesso">
-              <p>Já tem cadastro? <a href="login.html">Entrar</a></p>
-            </div>
-          </div>
-
-
-
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <br><br>
-
-</body>
-
-</html>
-
-<script>
-
-  function cadastrar() {
-
+ function cadastrar() {
+    
     var nomeVar = ipt_nome.value;
+    var sobrenomeVar = ipt_sobrenome.value;
     var emailVar = ipt_email.value;
     var senhaVar = ipt_senha.value;
     var confirmacaoSenhaVar = ipt_senhaConfirmar.value;
@@ -102,24 +10,25 @@
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
+      sobrenomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
       // cardErro.style.display = "block";
       // mensagem_erro.innerHTML =
-      //   "(Calma lá, todos os campos em branco)";
+      //   "(Mensagem de erro para todos os campos em branco)";
 
-      alert('Calma lá, todos os campos em branco');
+      alert('Deu erro campos em branco');
 
       finalizarAguardar();
       return false;
-    }
+    } 
     else if (nomeVar.length <= 1) {
       // cardErro.style.display = "block";
       // mensagem_erro.innerHTML = "(Seu nome deve ter mais de 1 caractere)"
 
-      /*alert('Seu nome precisa ter mais de 1 caractere')
+      alert('Seu nome precisa ter mais de 1 caractere')
       finalizarAguardar();
       return false;
     }
@@ -129,12 +38,12 @@
 
       alert('Seu sobrenome precisa ter mais de 1 caractere')
       finalizarAguardar();
-      return false;*/
+      return false;
     }
     else if (!emailVar.includes('@') || !emailVar.includes('.')) {
       // cardErro.style.display = "block";
-      // mensagem_erro.innerHTML = "(Seu email deve conter pelo menos @ e .)"
-      alert('Seu email deve conter pelo menos @ e .')
+      // mensagem_erro.innerHTML = "(O seu E-mail deve conter @ e .)"
+      alert ('Seu email deve conter @ e .')
       finalizarAguardar();
       return false;
     }
@@ -154,7 +63,7 @@
       finalizarAguardar();
       return false;
     }
-
+   
     else {
       setInterval(sumirMensagem, 5000);
     }
@@ -169,6 +78,7 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
+        sobrenomeServer: sobrenomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar
       }),
@@ -180,7 +90,7 @@
           // cardErro.style.display = "block";
 
           // mensagem_erro.innerHTML =
-          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+           alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
           setTimeout(() => {
             window.location = "login.html";
@@ -203,4 +113,3 @@
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
-</script>
