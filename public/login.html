@@ -50,12 +50,6 @@
                         <input type="password" id="ipt_senha">
                     </div>
 
-                    <div class="senha">
-                        <label>Confirmar Senha</label>
-                        <br>
-                        <input type="password" id="ipt_senhaConfirm">
-                    </div>
-
                     <div class="btn">
                         <button onclick="entrar()">Entrar</button></a>
                         <div class="acesso">
@@ -134,7 +128,7 @@
             } else {
 
                 console.log("Houve um erro ao tentar realizar o login!");
-
+                alert("Houve um erro ao tentar realizar o login!")
                 resposta.text().then(texto => {
                     console.error(texto);
                     finalizarAguardar(texto);

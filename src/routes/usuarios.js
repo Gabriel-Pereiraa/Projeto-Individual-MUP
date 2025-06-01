@@ -3,13 +3,29 @@ var router = express.Router();
 
 var usuarioController = require("../controllers/usuarioController");
 
-//Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
-router.post("/cadastrar", function (req, res) {
-    usuarioController.cadastrar(req, res);
+
+// Rota do primeiro cadastro
+router.post("/primeiroAcesso", function (req, res) {
+    usuarioController.primeiroAcesso(req, res);
 })
 
+// Rota para alterar a senha
+router.post("/alterarSenha", function (req, res) {
+    usuarioController.primeiroAcesso(req, res);
+})
+
+// Rota para fazer o login
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
+
+
+
+// Rota para atualizar os dados do funcionario
+router.patch("/atualizarDados/:idUsuario", function (req, res) {
+    usuarioController.atualizarDados(req, res);
+});
+
+
 
 module.exports = router;
