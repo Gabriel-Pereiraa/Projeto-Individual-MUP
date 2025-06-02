@@ -1,3 +1,4 @@
+
 const listaDeQuestoes = [
     {
         pergunta: "Por que o batismo é considerado um passo importante na vida cristã?",
@@ -49,11 +50,13 @@ const listaDeQuestoes = [
 let numeroDaQuestaoAtual = 0
 let pontuacaoFinal = 0
 let tentativaIncorreta = 0
-let certas = 0
-let erradas = 0
+var certas = 0
+var erradas = 0
 let quantidadeDeQuestoes = listaDeQuestoes.length
-var idQuizEnsinamentos = 1;
-// let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+var idQuiz = 1;
+
+// Array para armazenar as respostas do usuário
+let respostasUsuario = [];
 
 function onloadEsconder() {
     document.getElementById('pontuacao').style.display = "none"
@@ -73,7 +76,6 @@ function iniciarQuiz() {
 
     btnSubmeter.disabled = false
     btnProx.disabled = true
-    // btnConcluir.disabled = true
     btnTentarNovamente.disabled = true
 }
 
@@ -81,8 +83,6 @@ function preencherHTMLcomQuestaoAtual(index) {
     habilitarAlternativas(true)
     const questaoAtual = listaDeQuestoes[index]
     numeroDaQuestaoAtual = index
-    console.log("questaoAtual")
-    console.log(questaoAtual)
     document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
     document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
     document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
@@ -94,24 +94,63 @@ function preencherHTMLcomQuestaoAtual(index) {
 function submeter() {
     const options = document.getElementsByName("option"); // recupera alternativas no html
 
-    let hasChecked = false
+    let alternativaEscolhida = null;
     for (let i = 0; i < options.length; i++) {
         if (options[i].checked) {
-            hasChecked = true
-            break
+            alternativaEscolhida = options[i].value; // 'A', 'B', 'C' ou 'D'
+            break;
         }
     }
 
-    if (!hasChecked) {
-        alert("Não há alternativas escolhidas. Escolha uma opção.")
-    } else {
-        btnSubmeter.disabled = true
-        btnProx.disabled = false
-
-        habilitarAlternativas(false)
-
-        checarResposta()
+    if (!alternativaEscolhida) {
+        alert("Não há alternativas escolhidas. Escolha uma opção.");
+        return;
     }
+
+    // Salva a resposta no array com a estrutura { idQuiz, alternativaEscolhida }
+    respostasUsuario[numeroDaQuestaoAtual] = {
+        idQuiz: numeroDaQuestaoAtual + 1, // id da questão (ajuste conforme seu id real)
+        alternativaEscolhida: alternativaEscolhida
+    };
+
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    if (!idUsuario || pontuacao == null || idQuiz == null) {
+        alert("Dados insuficientes para registrar a pontuação.");
+        console.error("idUsuario:", idUsuario, "pontuacao:", pontuacao, "idQuiz:", idQuiz);
+        return false;
+    }
+
+    fetch("/quiz/quizEnsinamentos", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            idUsuarioServer: idUsuario,
+            pontuacaoServer: pontuacao,
+            idQuizEnsinamentosServer: idQuiz
+        }),
+    })
+        .then(function (resposta) {
+            if (resposta.ok) {
+                return true;
+            } else {
+                throw new Error("Erro ao registrar a pontuação.");
+            }
+        })
+        .catch(function (erro) {
+            console.error("Erro ao enviar pontuação:", erro);
+            alert("Erro ao registrar a pontuação. Tente novamente.");
+            return false;
+        });
+
+    btnSubmeter.disabled = true;
+    btnProx.disabled = false;
+
+    habilitarAlternativas(false);
+
+    checarResposta();
 }
 
 function habilitarAlternativas(trueOrFalse) {
@@ -121,7 +160,6 @@ function habilitarAlternativas(trueOrFalse) {
     segundaOpcao.disabled = opcaoEscolhida
     terceiraOpcao.disabled = opcaoEscolhida
     quartaOpcao.disabled = opcaoEscolhida
-
 }
 
 function avancar() {
@@ -133,7 +171,7 @@ function avancar() {
     if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
         preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
     } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-        alert("Atenção... a próxima é a ultima questão!")
+        alert("Atenção... a próxima é a última questão!")
         preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
     } else {
         finalizarJogo()
@@ -142,7 +180,6 @@ function avancar() {
 }
 
 function dashboard() {
-    // atualiza a página
     alert('Direcionando para Dashboard!')
     setTimeout(() => {
         window.location = '/dashboard/dashboard.html'
@@ -166,7 +203,6 @@ function checarResposta() {
 
     options.forEach((option) => {
         if (option.value === respostaQuestaoAtual) {
-            console.log("alternativaCorreta está no componente: " + alternativaCorreta)
             alternativaCorreta = option.labels[0].id
         }
     })
@@ -207,7 +243,6 @@ function desmarcarRadioButtons() {
     }
 }
 
-
 function finalizarJogo() {
     let textoParaMensagemFinal = null;
     let classComCoresParaMensagemFinal = null;
@@ -229,60 +264,177 @@ function finalizarJogo() {
     document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal;
     document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal);
     document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal;
+    alert('ue')
+    sessionStorage.CERTAS = certas
+    sessionStorage.ERRADAS = erradas
 
     document.getElementById('jogo').classList.add("text-new-gray");
+    alert()
 
     btnProx.disabled = true;
     btnSubmeter.disabled = true;
     btnTentarNovamente.disabled = false;
 
     localStorage.setItem("pontuacaoUsuario", pontuacaoFinal);
+    alert()
 
-    // ✅ Enviar pontuação para o servidor
+    // Enviar pontuação para o servidor (opcional)
     enviarPontuacaoQuiz(pontuacaoFinal, idQuizEnsinamentos);
+
+
+    // Enviar todas as respostas para o backend
+    alert()
+    enviarRespostasQuiz(respostasUsuario, sessionStorage.ID_USUARIO);
+    alert()
+
+
+    dadosDashboard()
+    graficoAcertosErros();
+
 }
 
-
-function enviarPontuacaoQuiz(pontuacao, idQuiz) {
-    var idUsuario = sessionStorage.ID_USUARIO;
-
-    // Validação dos dados
-    if (!idUsuario || pontuacao == null || idQuiz == null) {
-        alert("Dados insuficientes para registrar a pontuação.");
-        console.error("idUsuario:", idUsuario, "pontuacao:", pontuacao, "idQuiz:", idQuiz);
-        return false;
+function enviarRespostasQuiz(respostas, idUsuario) {
+    if (!idUsuario || !respostas || respostas.length === 0) {
+        alert("Dados insuficientes para registrar as respostas.");
+        return;
     }
 
-    // Enviando os dados para o servidor via fetch
-    fetch("/quiz/quizEnsinamentos", {
+    fetch("/quiz/registrarRespostas", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            idUsuarioServer: idUsuario,
-            pontuacaoServer: pontuacao,
-            idQuizEnsinamentosServer: idQuiz
+            idUsuario: idUsuario,
+            respostas: respostas
         }),
     })
-        .then(function (resposta) {
-            console.log("Resposta do servidor:", resposta);
+        .then(resposta => {
             if (resposta.ok) {
-                alert("Pontuação registrada com sucesso!");
-                sessionStorage.ULTIMA_PONTUACAO = pontuacao;
-                localStorage.setItem("pontuacaoQuiz", pontuacao);
-                console.log("Pontuação salva localmente:", pontuacao);
-
-                // Redirecionamento opcional:
-                // window.location = "pagina_resultado.html";
+                alert("Respostas registradas com sucesso!");
             } else {
-                throw new Error("Erro ao registrar a pontuação no servidor.");
+                throw new Error("Erro ao registrar as respostas.");
             }
         })
-        .catch(function (erro) {
-            console.error("Erro ao enviar a pontuação:", erro);
-            alert("Erro ao registrar a pontuação. Tente novamente.");
+        .catch(erro => {
+            console.error("Erro ao enviar respostas:", erro);
+            alert("Erro ao registrar as respostas. Tente novamente.");
         });
+}
 
-    return false;
+
+function dadosDashboard() {
+
+
+    console.log("Acertos:", certas, "Erros:", erradas);
+
+    const ctx2 = document.getElementById("myChart").getContext("2d");
+
+    const labels = ["Quiz 1"];
+    const acertos = sessionStorage.CERTAS
+    const erros = sessionStorage.ERRADAS
+
+    new Chart(ctx2, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Acertos",
+                    data: [acertos],
+                    borderColor: "rgba(0, 255, 0, 0.8)",
+                    backgroundColor: "rgba(0, 255, 0, 0.2)",
+                    tension: 0.3,
+                    fill: true
+                },
+                {
+                    label: "Erros",
+                    data: [erros],
+                    borderColor: "rgba(255, 0, 0, 0.8)",
+                    backgroundColor: "rgba(255, 0, 0, 0.2)",
+                    tension: 0.3,
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: "Quantidade"
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: "Quizzes"
+                    }
+                }
+            }
+        }
+    });
+}
+
+function graficoAcertosErros() {
+    const ctx = document.getElementById("graficoAnotacoes").getContext("2d");
+
+    const acertos = Number(sessionStorage.CERTAS);
+    const erros = Number(sessionStorage.ERRADAS);
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Acertos', 'Erros'],
+            datasets: [{
+                label: 'Resultado do Quiz',
+                data: [acertos, erros],
+                backgroundColor: [
+                    'rgba(168, 85, 247, 0.7)',  // Roxo claro - Acertos
+                    'rgba(239, 68, 68, 0.7)'    // Vermelho suave - Erros
+                ],
+                borderColor: [
+                    'rgba(168, 85, 247, 1)',    // Roxo escuro
+                    'rgba(239, 68, 68, 1)'      // Vermelho forte
+                ],
+                borderWidth: 2,
+                hoverOffset: 10
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#eee', // Cor da fonte da legenda
+                        font: {
+                            family: 'Poppins',
+                            size: 14,
+                            weight: '500'
+                        }
+                    },
+                    position: 'bottom'
+                },
+                title: {
+                    display: true,
+                    text: 'Desempenho no Quiz',
+                    color: '#fff',
+                    font: {
+                        family: 'Poppins',
+                        size: 20,
+                        weight: 'bold'
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#333',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    borderColor: '#888',
+                    borderWidth: 1
+                }
+            }
+        }
+    });
 }

@@ -1,17 +1,14 @@
 const quizModel = require("../models/quizModel");
 
-async function registrarRespostas(req, res) {
-    const { idUsuarioServer, pontuacaoServer, idQuizEnsinamentosServer } = req.body;
+async function registrarPontuacao(req, res) {
+    const { idUsuarioServer, idQuizEnsinamentosServer, pontuacaoServer } = req.body;
 
     if (!idUsuarioServer || !idQuizEnsinamentosServer || pontuacaoServer == null) {
-        return res.status(400).json({ mensagem: "Dados incompletos para registrar a pontuação." });
+        return res.status(400).json({ mensagem: "Dados incompletos para registrar pontuação." });
     }
 
     try {
-        // Armazena uma entrada para cada ponto correto como se fosse uma resposta correta.
-        for (let i = 0; i < pontuacaoServer; i++) {
-            await quizModel.registrarResposta(idUsuarioServer, idQuizEnsinamentosServer, 'C'); // Supondo 'C' como correta
-        }
+        await quizModel.registrarPontuacao(idUsuarioServer, idQuizEnsinamentosServer, pontuacaoServer);
         res.status(200).json({ mensagem: "Pontuação registrada com sucesso." });
     } catch (erro) {
         console.error("Erro ao registrar pontuação: ", erro.sqlMessage || erro);
@@ -19,17 +16,43 @@ async function registrarRespostas(req, res) {
     }
 }
 
-async function listarQuestoes(req, res) {
+async function registrarRespostas(req, res) {
+    const { idUsuarioServer, idQuizEnsinamentosServer, respostas } = req.body;
+
+    if (!idUsuarioServer || !idQuizEnsinamentosServer || !Array.isArray(respostas)) {
+        return res.status(400).json({ mensagem: "Dados incompletos para registrar respostas." });
+    }
+
     try {
-        const [result] = await quizModel.buscarQuestoes();
-        res.status(200).json(result);
+        for (let alternativa of respostas) {
+            await quizModel.registrarResposta(idUsuarioServer, idQuizEnsinamentosServer, alternativa);
+        }
+        res.status(200).json({ mensagem: "Respostas registradas com sucesso." });
     } catch (erro) {
-        console.error("Erro ao buscar questões: ", erro.sqlMessage || erro);
+        console.error("Erro ao registrar respostas: ", erro.sqlMessage || erro);
         res.status(500).json({ erro: erro.sqlMessage });
     }
 }
 
+async function listarQuestoes(req, res) {
+    try {
+        const questoes = await quizModel.obterQuestoes();
+        res.status(200).json(questoes);
+    } catch (erro) {
+        console.error("Erro ao listar questões: ", erro.sqlMessage || erro);
+        res.status(500).json({ erro: erro.sqlMessage });
+    }
+}
+
+function acertos(req, res) {
+
+    const limite_linhas = 2
+
+    
+}
+
 module.exports = {
+    registrarPontuacao,
     registrarRespostas,
     listarQuestoes
 };

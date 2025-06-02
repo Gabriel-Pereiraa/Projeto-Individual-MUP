@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="dadosDashboard(); graficoAcertosErros();">
+  <nav class="navbar">
+    <div class="logo">
+      <img src="../assets-imgs/logo.png" width="90" height="90" alt="Logo" />
+    </div>
+    <ul>
+      <a href="index.html"><li>INÍCIO</li></a>
+      <a href="estudoQuiz.html"><li>ESTUDO</li></a>
+      <div class="btn-navbar">
+        <button class="login" onclick="logout()">Sair</button>
+      </div>
+    </ul>
+  </nav>
+  
+/*
+  <div class="kpis">
+    <div class="kpi1"><h3>TOTAL DE TENTATIVAS: <span id="b_dias"></span></h3></div>
+    <div class="kpi2"><h3>NÍVEL DO USUÁRIO: <span id="anotacao_total"></span></h3></div>
+    <div class="kpi3"><h3>MEMBRO HÁ: <span id="interacaoFrequente"></span></h3></div>
+  </div>*/
+
+  <div class="graficos">
+    <div class="grafico1">
+      <canvas id="myChart" width="400" ></canvas>
+    </div>
+    <div class="grafico2">
+      <canvas id="graficoAnotacoes" width="400" ></canvas>
+    </div>
+  </div>
+</body>
+
+</html>
+<canvas id="myChart"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/estudoQuiz.js"></script>

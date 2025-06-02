@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+
+:root {
+    --font-title: "Plus Jakarta Sans", sans-serif;
+    --font-button: "Manrope", sans-serif;
+    --black-100: #000000;
+    --white-100: #ffffff;
+    --purple-100: #8000ff;
+    --dark-texto: #000000;
+}
+
+body {
+    background-color: var(--black-100);
+}
+
+::-webkit-scrollbar{
+    border-radius: 10px;
+    width: 3px;
+    height: 1px;
+    background-color: var(--black-100);
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background: var(--black-100);
+    width: 2px;
+    height: 1px;
+    border-radius: 8px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    align-items: flex-start;
+    text-align: center;
+    position: fixed;
+    background: var(--black-100);
+    
+     width: 10%;
+     height: 100vh;
+     gap: 8rem;
+
+    z-index: 1000;
+}
+
+.logo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    gap: 3rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    font-family: var(--font-title);
+    font-weight: bold;
+    
+
+    transition: all 0.4s ease;
+}
+
+.navbar a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+
+    transition: all 0.4s ease;
+}
+
+.navbar a:hover {
+    color: var(--purple-100);
+}
+
+.btn-navbar {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.btn-navbar .login {
+    background-color: transparent;
+    padding: 0.8rem;
+    border-radius: 10px;
+    width: 10rem;
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+    font-family: var(--font-button);
+    font-weight: bold;
+    text-align: center;
+
+
+    transition: all 1.5s ease;
+}
+
+.btn-navbar .login:hover {
+    background-color: transparent;
+    color: var(--purple-100);
+    border: 2px solid hsl(270, 100%, 50%);
+    transition: all 1.5s ease;
+}
+
+
+.home {
+  margin-top: 1rem;
+  font-family: var(--font-title);
+  margin-left: 14rem;
+  font-size: 0.8vw;
+}
+
+.kpis {
+    display: flex;
+    width: 80%;
+    gap: 4.2rem;
+
+    margin-left: 14rem;
+
+}
+
+.kpi1 {
+    background-color: var(--white-100);
+    border-radius: 10px;
+    width: 360px;
+    height: 150px;
+
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-title);
+    justify-content: center;
+    display: flex;
+
+    transition: all 1.5s ease;
+}
+
+.kpi2 {
+    background-color: var(--white-100);
+    border-radius: 10px;
+    width: 360px;
+    height: 150px;
+
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-title);
+    justify-content: center;
+    display: flex;
+}
+
+.kpi3 {
+    background-color: var(--white-100);
+    border-radius: 10px;
+    width: 360px;
+    height: 150px;
+    
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-title);
+    justify-content: center;
+    display: flex;
+}
+
+.graficos {
+    display: flex;
+    width: 100%;
+
+    margin-left: 14rem;
+    gap: 2rem;
+}
+
+.grafico1 {
+    width: 37.1%;
+    border: 1px solid var(--purple-100);
+    border-radius: 10px;
+    height: 50vh;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--white-100);
+    transition: all 0.1s ease;
+    overflow-y: hidden;
+}
+
+.grafico1:hover {
+    margin-top: 0.8rem;
+}
+
+.grafico2 {
+    width: 36.1%;
+    border: 1px solid var(--purple-100);
+    border-radius: 12px;
+    height: 50vh;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--white-100);
+    transition: all 0.3s ease;
+    overflow-y: hidden;
+}
+
+/*#myChart {
+   text-align: center;
+   margin-left: 3rem;
+   display: flex;
+}*/
+
+.grafico2:hover {
+    margin-top: 0.8rem;
+}
+
+.graficoEnd {
+    width: 100%;
+
+    margin-left: 13rem;
+    gap: 3rem;
+}
+
+.graficoInteracao {
+    width: 100%;
+    height: 30vh;
+    background-color: var(--purple-100);
+
+    border: 1px solid var(--purple-100);
+    color: white;
+    border-radius: 12px;
+    height: 65vh;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+#graficoInteracoes {
+    text-align: center;
+    align-items: center;
+    margin-left: 7rem;
+    color: white;
+}
+
+#graficoAnotacoes {
+    margin-top: 3rem;
+    font-weight: bold;
+    
+}
+
+#b_conta {
+    color: white;
+    background-color: var(--black-100);
+}
+
+#b_dias {
+    color: hsl(0, 0%, 100%);
+    background-color: var(--purple-100);
+}
+
+#anotacao_total {
+    color: hsl(0, 0%, 100%);
+    background-color: var(--purple-100);
+}
+
+#interacaoFrequente {
+    color: hsl(0, 0%, 100%);
+    background-color: var(--purple-100);
+}
+
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+.grafico1 canvas,
+.grafico2 canvas {
+    margin: 0 auto;
+}
