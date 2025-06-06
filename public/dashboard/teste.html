@@ -12,18 +12,23 @@
 <body onload="dadosDashboard(); graficoAcertosErros();">
   <nav class="navbar">
     <div class="logo">
-      <img src="../assets-imgs/logo.png" width="90" height="90" alt="Logo" />
+      <img src="../assets-imgs/logo.png" width="80" height="80" alt="Logo" />
     </div>
     <ul>
-      <a href="index.html"><li>INÍCIO</li></a>
-      <a href="estudoQuiz.html"><li>ESTUDO</li></a>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <div class="btn-navbar">
-        <button class="login" onclick="logout()">Sair</button>
+        <button class="login" onclick="logout2()">ESTUDO</button>
+        <div class="btn-navbar">
+        <button class="login" onclick="logout()">SAIR</button>
       </div>
+      
     </ul>
   </nav>
   
-/*
+
+  <br><br><br><br><br>
+ 
+  
   <div class="kpis">
     <div class="kpi1"><h3>TOTAL DE TENTATIVAS: <span id="b_dias"></span></h3></div>
     <div class="kpi2"><h3>NÍVEL DO USUÁRIO: <span id="anotacao_total"></span></h3></div>
@@ -34,13 +39,10 @@
     <div class="grafico1">
       <canvas id="myChart" width="400" ></canvas>
     </div>
-    <div class="grafico2">
-      <canvas id="graficoAnotacoes" width="400" ></canvas>
-    </div>
-  </div>
+   
 </body>
 
 </html>
-<canvas id="myChart"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../js/estudoQuiz.js"></script>
+<script src="../js/dashboard.js"></script>

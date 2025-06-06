@@ -39,33 +39,6 @@ function autenticar(req, res) {
     }
 }
 
-function cadastrarFunc(req, res) {
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (nome == undefined) {
-        res.status(400).send("O nome esta undefined");
-    } else {
-        usuarioModel.cadastrarFunc(nome, email, senha)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o cadastro! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
-
 function primeiroAcesso(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
@@ -142,10 +115,26 @@ function atualizarDados(req, res) {
     }
 }
 
+async function buscarDataCadastro(req, res) {
+    const idUsuario = req.params.idUsuario;
+
+    try {
+        const resultado = await usuarioModel.buscarDados(idUsuario);
+        if (resultado.length > 0) {
+            res.status(200).json({ dtCadastro: resultado[0].dtCadastro });
+        } else {
+            res.status(404).json({ mensagem: "Usuário não encontrado." });
+        }
+    } catch (erro) {
+        console.error("Erro ao buscar data de cadastro:", erro.sqlMessage || erro);
+        res.status(500).json({ erro: erro.sqlMessage });
+    }
+}
+
 module.exports = {
     autenticar,
-    cadastrarFunc,
     primeiroAcesso,
     alterarSenha,
     atualizarDados,
+    buscarDataCadastro
 };

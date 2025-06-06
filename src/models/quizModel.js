@@ -1,46 +1,28 @@
 const database = require("../database/config");
 
-// Registra uma resposta no banco
-
-function registrarResposta(fkUsuario, fkQuiz, alternativaEscolhida) {
+function buscarDados(idUsuario) {
     const instrucao = `
-        INSERT INTO resposta_quiz (fkUsuario, fkQuiz, alternativaEscolhida)
-        VALUES (${fkUsuario}, ${fkQuiz}, '${alternativaEscolhida}');
+        SELECT sum(acertos) as acertos, sum(erros) as erros, count(id) as qtdTentativas FROM tentativas WHERE fkUsuario = ${idUsuario};
     `;
     return database.executar(instrucao);
 }
 
-// Exemplo: retorna todas as questões de um quiz específico (se você tiver uma tabela `questao`)
-function buscarQuestoesPorQuiz(idQuiz) {
+function registrarTentativas(idUsuario, certas, erradas) {
     const instrucao = `
-        SELECT * FROM questao WHERE fkQuiz = ${idQuiz};
+        INSERT INTO tentativas (acertos, erros, fkUsuario) VALUES (${certas}, ${erradas}, ${idUsuario});
     `;
     return database.executar(instrucao);
 }
 
-// Exemplo: total de acertos por usuário (dependendo da lógica de resposta correta)
-function obterPontuacaoPorUsuario(idUsuario) {
+function registrarTentativas(idUsuario, certas, erradas) {
     const instrucao = `
-        SELECT COUNT(*) AS totalRespostas
-        FROM resposta_quiz
-        WHERE fkUsuario = ${idUsuario};
-    `;
-    return database.executar(instrucao);
-}
-
-function registrarPontuacao(idUsuario, alternativaEscolhida) {
-    const instrucao = `
-        INSERT INTO resposta_quiz (fkUsuario, fkQuiz, alternativaEscolhida, dataResposta)
-        VALUES (${idUsuario}, 1, '${alternativaEscolhida}', NOW());
+        INSERT INTO tentativas (acertos, erros, fkUsuario) VALUES (${certas}, ${erradas}, ${idUsuario});
     `;
     return database.executar(instrucao);
 }
 
 
 module.exports = {
-    registrarResposta,
-    buscarQuestoesPorQuiz,
-    obterPontuacaoPorUsuario,
-    registrarPontuacao
-
+    buscarDados,
+    registrarTentativas
 };

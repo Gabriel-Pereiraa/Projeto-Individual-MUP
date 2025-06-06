@@ -10,6 +10,10 @@
     --dark-texto: #000000;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar{
     border-radius: 1px;
     width: 1px;
@@ -20,6 +24,7 @@
     background: var(--black-100);
     border-radius: 8px;
   }
+
 
 /*INICIO-INICIO-INICIO*/
 
@@ -216,6 +221,17 @@ body {
     align-items: center;
     display: flex;
     margin-top: 0rem;
+    color: var(--white-100);
+}
+
+
+.texto-contribuir {
+  text-align: center;
+  padding: 60px  30px  60px 0px;
+  margin-right: 100px;
+  position: relative;
+
+  & h1{font-size: 50px;}
 }
 
 .cards {

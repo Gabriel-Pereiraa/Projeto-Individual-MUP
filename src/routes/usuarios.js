@@ -19,11 +19,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
-
-
-// Rota para atualizar os dados do funcionario
-router.patch("/atualizarDados/:idUsuario", function (req, res) {
-    usuarioController.atualizarDados(req, res);
+router.get("/cadastro/:idUsuario", function (req, res) {
+    usuarioController.buscarDataCadastro(req, res);
 });
 
 

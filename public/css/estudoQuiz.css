@@ -45,22 +45,6 @@ body {
     margin-top: 10%;
 }
 
-#btnRetorno {
-    padding: 2rem;
-    border-radius: 12px;
-    width: 15rem;
-    background-color: var(--purple-100);
-    font-family: var(--font-button);
-    border: 1px solid var(--purple-100);
-    font-weight: 600;
-    transition: all 1.0s ease;
-}
-
-#btnRetorno:hover {
-    background-color: white;
-    border: 1px solid white;
-}
-
 #btnIniciarQuiz:hover {
     background-color: transparent;
     color: var(--purple-100);
@@ -80,7 +64,6 @@ body {
     background-color: white;
     border: white;
     transition: all 1.0s ease;
-
 }
 
 .btn-start button:hover {

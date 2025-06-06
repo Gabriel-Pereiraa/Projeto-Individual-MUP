@@ -97,16 +97,20 @@ function cadastrar() {
   var senhaVar = ipt_senha.value;
   var confirmacaoSenhaVar = ipt_senhaConfirmar.value;
 
-  // Verificando se há algum campo em branco
-  if (
-    nomeVar == "" ||
-    emailVar == "" ||
-    senhaVar == "" ||
-    confirmacaoSenhaVar == ""
-  ) {
-    alert('Calma lá, todos os campos precisam ser preenchidos');
-    return false;
-  } else if (nomeVar.length <= 1) {
+  //  Vetor com os valores dos campos
+  var campos = [nomeVar, emailVar, senhaVar, confirmacaoSenhaVar];
+  var nomesCampos = ["Nome", "Email", "Senha", "Confirmação de Senha"];
+
+  //  Repetição para verificar se algum campo está vazio
+  for (let i = 0; i < campos.length; i++) {
+    if (campos[i] == "") {
+      alert(`O campo ${nomesCampos[i]} precisa ser preenchido`);
+      return false;
+    }
+  }
+
+  // Validações específicas
+  if (nomeVar.length <= 1) {
     alert('Seu nome precisa ter mais de 1 caractere');
     return false;
   } else if (!emailVar.includes('@') || !emailVar.includes('.')) {

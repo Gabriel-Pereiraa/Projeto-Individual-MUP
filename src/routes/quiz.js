@@ -2,11 +2,9 @@ const express = require('express');
 const router = express.Router();
 const quizController = require('../controllers/quizController');
 
-router.post('/quizEnsinamentos', quizController.registrarPontuacao);
-router.post('/registrarRespostas', quizController.registrarRespostas);
-router.get('/questoes', quizController.listarQuestoes);
-
-//router.get('/acertos', quizController.acertos);
-
+router.post('/registrarTentativas', quizController.registrarTentativas);
+router.get("/dashboard/:idUsuario", function (req, res) {
+    quizController.buscarDados(req, res);
+});
 
 module.exports = router;

@@ -164,8 +164,8 @@ body {
     padding: 0.8rem;
     border-radius: 10px;
     border: 1.5px solid var(--black-100);
-    background-color: var(--black-100);
-    color: var(--white-100);
+    background-color: transparent;
+    color: var(--black-100);
     font-family: var(--font-button);
     font-weight: bold;
     width: 16rem;
