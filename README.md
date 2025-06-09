@@ -7,23 +7,6 @@ O intuito deste projeto é oferecer um ambiente acolhedor e significativo para m
 site institucional, a proposta é criar um espaço onde a história e os valores por essa comunidade possam ser compartilhados de forma acessível e interativa.
 <br>
 
-## 📦 Escopo do Projeto
-
-### Plataforma Web
-<br>
-
-<br>
-
-### Página de Cadastro
-  <br>
-  <img src="./assets-imgs/cadastro.jpg"> 
-<br>
-
-### Página de Login
-<br>
- <img src="./assets-imgs/login.jpg"> 
-<br>
-
 ### Quiz de Estudo sobre valores da igreja
   - Armazenamento de respostas para geração de KPIs
     
